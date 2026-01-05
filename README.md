@@ -44,3 +44,29 @@ WHERE
 ORDER BY 
     distance ASC
 LIMIT 1;
+3️⃣ Performance Analysis: Spatial Indexing (Bonus)
+To demonstrate the efficiency of database indexing, I tested the query performance with and without a Spatial Index (GIST).
+
+🚀 Query WITH Spatial Index (Fast)
+The query executed significantly faster when the spatial index was active.
+
+Execution Time: 0.004s (approx)
+
+🐌 Query WITHOUT Spatial Index (Slow)
+I dropped the index and restarted the session (cold start) to simulate a non-indexed search. The query took significantly longer to process because the database had to scan the entire table sequentially.
+
+Execution Time: 0.260s (approx)
+
+Conclusion: Using a spatial index significantly improves query performance (approx. 65x faster) by allowing the database to locate geometries efficiently without scanning the entire table.
+
+4️⃣ Accessing Event Details & Photos
+By clicking on a point in QGIS, I inspected detailed event information using the Identify Features panel. This allowed me to verify:
+
+Event Type (Cigarette Butt vs. Trash Bin)
+
+User ID matching
+
+Timestamps
+
+📸 Opening Photos
+In QGIS, I could also access the photo URLs directly from the attribute table to verify the field observations visually.
